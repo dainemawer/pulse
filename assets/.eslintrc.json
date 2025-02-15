@@ -1,0 +1,10 @@
+{
+  "extends": "@10up/eslint-config/wordpress",
+  "rules": {
+    "react/jsx-no-undef": [true, { "allowGlobals": true }]
+  },
+  "globals": {
+    "module": true,
+    "process": true
+  }
+}
