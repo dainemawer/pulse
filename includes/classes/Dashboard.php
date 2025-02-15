@@ -42,7 +42,7 @@ class Dashboard implements ModuleInterface {
 
 	public function enqueue_dashboard_assets( $hook ) {
 
-		if ( $hook !== 'toplevel_page_rum-dashboard' ) {
+		if ( $hook !== 'pulse_page_pulse-dashboard' ) {
             return;
         }
 
@@ -68,6 +68,17 @@ class Dashboard implements ModuleInterface {
             'dashicons-chart-line',
             2
         );
+
+		add_submenu_page(
+            'rum-dashboard', // Parent slug
+            __('Dashboard', 'pulse-performance-tracker'), // Page title
+            __('Dashboard', 'pulse-performance-tracker'), // Menu title
+            'manage_options', // Capability
+            'pulse-dashboard', // Slug
+            [$this, 'render_dashboard_page'] // Function callback
+        );
+
+		remove_submenu_page('rum-dashboard', 'rum-dashboard');
     }
 
 	/**

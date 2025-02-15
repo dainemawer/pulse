@@ -41,9 +41,10 @@ class Settings implements ModuleInterface {
 	}
 
 	public function add_settings_page() {
-		add_options_page(
+		add_submenu_page(
+			'rum-dashboard',
 			__( 'Pulse Settings', 'pulse-performance' ),
-			__( 'Pulse Settings', 'pulse-performance' ),
+			__( 'Settings', 'pulse-performance' ),
 			'manage_options',
 			'pulse-settings',
 			[ $this, 'pulse_settings_page' ]
